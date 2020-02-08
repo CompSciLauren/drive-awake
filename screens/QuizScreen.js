@@ -1,19 +1,11 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
 import { Button } from '../components/Button';
 
-export default class HomeScreen extends React.Component {
+export default class QuizScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -22,24 +14,13 @@ export default class HomeScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
           <View style={styles.getStartedContainer}>
-            <Text style={styles.breakText}>Time until required break:</Text>
+            <Text style={styles.breakText}>Text</Text>
 
             <View
-              style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+              style={[styles.codeHighlightContainer, styles.quizScreenFilename]}
             >
-              <MonoText style={styles.clockText}>4:20</MonoText>
+              <MonoText style={styles.clockText}>Text</MonoText>
             </View>
           </View>
 
@@ -51,7 +32,7 @@ export default class HomeScreen extends React.Component {
             <Button title="Arrived" />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigate('Quiz')}>
+          <TouchableOpacity onPress={() => navigate('Settings')}>
             <Button title="Take Quiz" />
           </TouchableOpacity>
         </ScrollView>
@@ -60,7 +41,7 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-HomeScreen.navigationOptions = {
+QuizScreen.navigationOptions = {
   header: null,
 };
 
@@ -77,18 +58,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
+  quizScreenFilename: {
     marginVertical: 7,
   },
   codeHighlightContainer: {

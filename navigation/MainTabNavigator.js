@@ -8,6 +8,7 @@ import {
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import QuizScreen from '../screens/QuizScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -19,6 +20,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Quiz: QuizScreen,
     Settings: SettingsScreen,
   },
   config
@@ -39,6 +41,25 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+
+const QuizStack = createStackNavigator(
+  {
+    Quiz: QuizScreen,
+  },
+  config
+);
+
+QuizStack.navigationOptions = {
+  tabBarLabel: 'Astir',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+    />
+  ),
+};
+
+QuizStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
