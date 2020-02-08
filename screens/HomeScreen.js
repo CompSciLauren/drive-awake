@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import { Button } from '../components/Button';
 
 export default function HomeScreen() {
   return (
@@ -46,6 +47,18 @@ export default function HomeScreen() {
           </Text>
         </View>
 
+        <TouchableOpacity onPress={() => navigate('Settings')}>
+          <Button title="HELP" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigate('Settings')}>
+          <Button title="Arrived" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigate('Settings')}>
+          <Button title="Take Quiz" />
+        </TouchableOpacity>
+
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
@@ -54,20 +67,6 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}
-        >
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
-      </View>
     </View>
   );
 }
