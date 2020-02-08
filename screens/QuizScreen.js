@@ -65,7 +65,6 @@ const quizData = {
 export default class QuizScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
-    const qdata = quizData.quiz.quiz1;
     return (
       <View style={styles.container}>
         <ScrollView
@@ -73,7 +72,9 @@ export default class QuizScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.getStartedContainer}>
-            <Text style={styles.breakText}>Text</Text>
+            <Text style={styles.breakText}>
+              {quizData.quiz.quiz1.question1.question}
+            </Text>
 
             <View
               style={[styles.codeHighlightContainer, styles.quizScreenFilename]}
@@ -81,7 +82,19 @@ export default class QuizScreen extends React.Component {
           </View>
 
           <TouchableOpacity onPress={() => navigate('Settings')}>
-            <Button title="HELP" />
+            <Button title={quizData.quiz.quiz1.question1.options.option1} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title={quizData.quiz.quiz1.question1.options.option2} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title={quizData.quiz.quiz1.question1.options.option3} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title={quizData.quiz.quiz1.question1.options.option4} />
           </TouchableOpacity>
         </ScrollView>
       </View>
