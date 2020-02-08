@@ -73,7 +73,7 @@ export default function HomeScreen() {
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  title: 'Home',
 };
 
 function DevelopmentModeNotice() {
