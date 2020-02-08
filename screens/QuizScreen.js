@@ -128,19 +128,35 @@ export default class QuizScreen extends React.Component {
 
         <View style={styles.getStartedContainer}>
           {this.state.show2 ? (
-            <TouchableOpacity onPress={this.ShowHideComponent}>
+            <View>
+              <TouchableOpacity onPress={this.ShowHideComponent}>
+                <Button title="Swipe up" />
+              </TouchableOpacity>
+
               <View style={styles.circleContainer}></View>
-            </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.ShowHideComponent}>
+                <Button title="Swipe down" />
+              </TouchableOpacity>
+            </View>
           ) : null}
         </View>
 
         <View style={styles.getStartedContainer}>
           {this.state.show3 ? (
-            <TouchableOpacity onPress={this.ShowHideComponent}>
+            <View>
+              <TouchableOpacity onPress={this.ShowHideComponent}>
+                <Button title="Swipe up" />
+              </TouchableOpacity>
+
               <View style={styles.quizTextContainer}>
                 <Text style={styles.quizText}>3</Text>
               </View>
-            </TouchableOpacity>
+
+              <TouchableOpacity onPress={this.ShowHideComponent}>
+                <Button title="Swipe down" />
+              </TouchableOpacity>
+            </View>
           ) : null}
         </View>
 
