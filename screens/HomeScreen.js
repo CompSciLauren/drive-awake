@@ -6,55 +6,58 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
 import { Button } from '../components/Button';
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.breakText}>Time until required break:</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          >
-            <MonoText style={styles.clockText}>4:20</MonoText>
+export default class HomeScreen extends React.Component {
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}
+        >
+          <View style={styles.welcomeContainer}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/robot-dev.png')
+                  : require('../assets/images/robot-prod.png')
+              }
+              style={styles.welcomeImage}
+            />
           </View>
-        </View>
 
-        <TouchableOpacity onPress={() => navigate('Settings')}>
-          <Button title="HELP" />
-        </TouchableOpacity>
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.breakText}>Time until required break:</Text>
 
-        <TouchableOpacity onPress={() => navigate('Settings')}>
-          <Button title="Arrived" />
-        </TouchableOpacity>
+            <View
+              style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+            >
+              <MonoText style={styles.clockText}>4:20</MonoText>
+            </View>
+          </View>
 
-        <TouchableOpacity onPress={() => navigate('Settings')}>
-          <Button title="Take Quiz" />
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
-  );
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title="HELP" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title="Arrived" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <Button title="Take Quiz" />
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+    );
+  }
 }
 
 HomeScreen.navigationOptions = {
