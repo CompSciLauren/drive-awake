@@ -54,6 +54,11 @@ export default class HomeScreen extends React.Component {
           <TouchableOpacity onPress={() => navigate('Quiz')}>
             <Button title="Take Quiz" />
           </TouchableOpacity>
+
+          <Text style={styles.weatherText}>
+            The weather is (good/bad). Road conditions (should be normal / may
+            be bad).
+          </Text>
         </ScrollView>
       </View>
     );
@@ -104,5 +109,13 @@ const styles = StyleSheet.create({
   },
   clockText: {
     fontSize: 60,
+  },
+  weatherText: {
+    marginTop: 40,
+    fontSize: 24,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginHorizontal: 20,
   },
 });
