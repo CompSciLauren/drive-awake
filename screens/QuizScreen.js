@@ -67,6 +67,7 @@ export default class QuizScreen extends React.Component {
     super();
     this.state = {
       show: true,
+      show2: false,
     };
   }
 
@@ -75,6 +76,12 @@ export default class QuizScreen extends React.Component {
       this.setState({ show: false });
     } else {
       this.setState({ show: true });
+    }
+
+    if (this.state.show2 == false) {
+      this.setState({ show2: true });
+    } else {
+      this.setState({ show2: false });
     }
   };
 
@@ -115,12 +122,14 @@ export default class QuizScreen extends React.Component {
             <TouchableOpacity onPress={() => navigate('Settings')}>
               <Button title={quizData.quiz.quiz1.question1.options.option4} />
             </TouchableOpacity>
-
-            <View style={styles.getStartedContainer}>
-              <View style={styles.circleContainer}></View>
-            </View>
           </ScrollView>
         ) : null}
+
+        <View style={styles.getStartedContainer}>
+          {this.state.show2 ? (
+            <View style={styles.circleContainer}></View>
+          ) : null}
+        </View>
       </View>
     );
   }
@@ -134,6 +143,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop: 50,
   },
   contentContainer: {
     paddingTop: 30,
@@ -169,5 +179,6 @@ const styles = StyleSheet.create({
     borderRadius: 150,
     width: 300,
     height: 300,
+    marginTop: 50,
   },
 });
