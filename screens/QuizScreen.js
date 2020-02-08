@@ -68,20 +68,21 @@ export default class QuizScreen extends React.Component {
     this.state = {
       show: true,
       show2: false,
+      show3: false,
+      show4: false,
     };
   }
 
   ShowHideComponent = () => {
     if (this.state.show == true) {
       this.setState({ show: false });
-    } else {
-      this.setState({ show: true });
-    }
-
-    if (this.state.show2 == false) {
       this.setState({ show2: true });
-    } else {
+    } else if (this.state.show2 == true) {
       this.setState({ show2: false });
+      this.setState({ show3: true });
+    } else if (this.state.show3 == true) {
+      this.setState({ show3: false });
+      this.setState({ show4: true });
     }
   };
 
@@ -127,8 +128,24 @@ export default class QuizScreen extends React.Component {
 
         <View style={styles.getStartedContainer}>
           {this.state.show2 ? (
-            <View style={styles.circleContainer}></View>
+            <TouchableOpacity onPress={this.ShowHideComponent}>
+              <View style={styles.circleContainer}></View>
+            </TouchableOpacity>
           ) : null}
+        </View>
+
+        <View style={styles.getStartedContainer}>
+          {this.state.show3 ? (
+            <TouchableOpacity onPress={this.ShowHideComponent}>
+              <View style={styles.quizTextContainer}>
+                <Text style={styles.quizText}>3</Text>
+              </View>
+            </TouchableOpacity>
+          ) : null}
+        </View>
+
+        <View style={styles.getStartedContainer}>
+          {this.state.show4 ? <Text style={styles.quizText}>Done!</Text> : null}
         </View>
       </View>
     );
@@ -174,11 +191,23 @@ const styles = StyleSheet.create({
   clockText: {
     fontSize: 60,
   },
+  quizText: {
+    fontSize: 96,
+    marginTop: 70,
+  },
   circleContainer: {
     backgroundColor: '#00FF55',
     borderRadius: 150,
     width: 300,
     height: 300,
     marginTop: 50,
+  },
+  quizTextContainer: {
+    backgroundColor: '#FFF',
+    borderRadius: 150,
+    width: 300,
+    height: 300,
+    marginTop: 50,
+    alignItems: 'center',
   },
 });
