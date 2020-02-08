@@ -47,7 +47,7 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Astir',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

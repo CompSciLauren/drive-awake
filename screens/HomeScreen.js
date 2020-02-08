@@ -32,12 +32,12 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>Time until required break:</Text>
+          <Text style={styles.breakText}>Time until required break:</Text>
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           >
-            <MonoText>4:20</MonoText>
+            <MonoText style={styles.clockText}>4:20</MonoText>
           </View>
         </View>
 
@@ -93,10 +93,13 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 4,
   },
-  getStartedText: {
-    fontSize: 17,
+  breakText: {
+    fontSize: 24,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  clockText: {
+    fontSize: 60,
   },
 });
