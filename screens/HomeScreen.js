@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, View, Text, Alert } from 'react-native';
 export default class HomeScreen extends Component {
-  handlePress = async () => {
+  handleTurnDeviceOn = async () => {
     fetch('http://13.58.89.149:8000/endpoint/api/onoff/', {
       method: 'POST',
       headers: {
@@ -13,15 +13,37 @@ export default class HomeScreen extends Component {
       }),
     });
   };
+
+  handleTurnDeviceOff = async () => {
+    fetch('http://13.58.89.149:8000/endpoint/api/onoff/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        turnOnConnection: false,
+      }),
+    });
+  };
+
   render() {
     return (
       <View style={{ paddingTop: 50, paddingLeft: 50 }}>
         <Text> Some other text </Text>
         <Text> Some other text </Text>
-        <TouchableOpacity onPress={this.handlePress.bind(this)}>
+
+        <TouchableOpacity onPress={this.handleTurnDeviceOn.bind(this)}>
           <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
             {' '}
-            Click me to see the name{' '}
+            Click me to turn the device on{' '}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.handleTurnDeviceOff.bind(this)}>
+          <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
+            {' '}
+            Click me to turn the device off{' '}
           </Text>
         </TouchableOpacity>
       </View>
