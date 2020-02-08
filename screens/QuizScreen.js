@@ -70,6 +70,8 @@ export default class QuizScreen extends React.Component {
       show2: false,
       show3: false,
       show4: false,
+      tiredScore: 0,
+      quizFeedback: 'None. Quiz was not taken successfully.',
     };
   }
 
@@ -86,8 +88,26 @@ export default class QuizScreen extends React.Component {
     }
   };
 
+  setQuizFeedback(tiredScore) {
+    if (tiredScore <= 2) {
+      this.setState({
+        quizFeedback:
+          'Your results do not indicate that you are too tired to drive. However, use your best judgement and do not drive if you feel too tired.',
+      });
+    } else if (tiredScore <= 4) {
+      this.setState({
+        quizFeedback:
+          'You seem moderately tired. You should take a break before getting back on the road.',
+      });
+    } else {
+      this.setState({
+        quizFeedback:
+          'You are exhausted. It is too dangerous for you to drive. What would you like to do instead?\n\n1. Call a buddy\n2. Call the police\n3. Sleep in your car...?',
+      });
+    }
+  }
+
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         {this.state.show ? (
@@ -108,19 +128,38 @@ export default class QuizScreen extends React.Component {
               ></View>
             </View>
 
-            <TouchableOpacity onPress={this.ShowHideComponent}>
+            <TouchableOpacity
+              onPress={() => {
+                this.ShowHideComponent();
+              }}
+            >
               <Button title={quizData.quiz.quiz1.question1.options.option1} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigate('Settings')}>
+            <TouchableOpacity
+              onPress={() => {
+                this.ShowHideComponent(),
+                  this.setState({ tiredScore: this.state.tiredScore + 1 });
+              }}
+            >
               <Button title={quizData.quiz.quiz1.question1.options.option2} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigate('Settings')}>
+            <TouchableOpacity
+              onPress={() => {
+                this.ShowHideComponent(),
+                  this.setState({ tiredScore: this.state.tiredScore + 2 });
+              }}
+            >
               <Button title={quizData.quiz.quiz1.question1.options.option3} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigate('Settings')}>
+            <TouchableOpacity
+              onPress={() => {
+                this.ShowHideComponent(),
+                  this.setState({ tiredScore: this.state.tiredScore + 4 });
+              }}
+            >
               <Button title={quizData.quiz.quiz1.question1.options.option4} />
             </TouchableOpacity>
           </ScrollView>
@@ -129,13 +168,22 @@ export default class QuizScreen extends React.Component {
         <View style={styles.getStartedContainer}>
           {this.state.show2 ? (
             <View>
-              <TouchableOpacity onPress={this.ShowHideComponent}>
-                <Button title="Swipe up" />
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent();
+                }}
+              >
+                <Button title="Swipe up (correct)" />
               </TouchableOpacity>
 
               <View style={styles.circleContainer}></View>
 
-              <TouchableOpacity onPress={this.ShowHideComponent}>
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setState({ tiredScore: this.state.tiredScore + 1 });
+                }}
+              >
                 <Button title="Swipe down" />
               </TouchableOpacity>
             </View>
@@ -145,7 +193,13 @@ export default class QuizScreen extends React.Component {
         <View style={styles.getStartedContainer}>
           {this.state.show3 ? (
             <View>
-              <TouchableOpacity onPress={this.ShowHideComponent}>
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setState({ tiredScore: this.state.tiredScore + 1 }),
+                    this.setQuizFeedback(this.state.tiredScore);
+                }}
+              >
                 <Button title="Swipe up" />
               </TouchableOpacity>
 
@@ -153,15 +207,30 @@ export default class QuizScreen extends React.Component {
                 <Text style={styles.quizText}>3</Text>
               </View>
 
-              <TouchableOpacity onPress={this.ShowHideComponent}>
-                <Button title="Swipe down" />
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setQuizFeedback(this.state.tiredScore);
+                }}
+              >
+                <Button title="Swipe down (correct)" />
               </TouchableOpacity>
             </View>
           ) : null}
         </View>
 
         <View style={styles.getStartedContainer}>
-          {this.state.show4 ? <Text style={styles.quizText}>Done!</Text> : null}
+          {this.state.show4 ? (
+            <View>
+              <Text style={styles.quizResultsText}>
+                Your score: {this.state.tiredScore}
+              </Text>
+
+              <Text style={styles.quizResultsText}>
+                {this.state.quizFeedback}
+              </Text>
+            </View>
+          ) : null}
         </View>
       </View>
     );
@@ -210,6 +279,10 @@ const styles = StyleSheet.create({
   quizText: {
     fontSize: 96,
     marginTop: 70,
+  },
+  quizResultsText: {
+    fontSize: 24,
+    marginTop: 110,
   },
   circleContainer: {
     backgroundColor: '#00FF55',
