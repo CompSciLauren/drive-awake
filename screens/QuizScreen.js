@@ -82,38 +82,41 @@ export default class QuizScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.breakText}>
-              {quizData.quiz.quiz1.question1.question}
-            </Text>
+        {this.state.show ? (
+          <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.contentContainer}
+          >
+            <View style={styles.getStartedContainer}>
+              <Text style={styles.breakText}>
+                {quizData.quiz.quiz1.question1.question}
+              </Text>
 
-            <View
-              style={[styles.codeHighlightContainer, styles.quizScreenFilename]}
-            ></View>
-          </View>
+              <View
+                style={[
+                  styles.codeHighlightContainer,
+                  styles.quizScreenFilename,
+                ]}
+              ></View>
+            </View>
 
-          <View>{this.state.show ? <Text>Hello Text</Text> : null}</View>
+            <TouchableOpacity onPress={this.ShowHideComponent}>
+              <Button title={quizData.quiz.quiz1.question1.options.option1} />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={this.ShowHideComponent}>
-            <Button title={quizData.quiz.quiz1.question1.options.option1} />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Settings')}>
+              <Button title={quizData.quiz.quiz1.question1.options.option2} />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigate('Settings')}>
-            <Button title={quizData.quiz.quiz1.question1.options.option2} />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Settings')}>
+              <Button title={quizData.quiz.quiz1.question1.options.option3} />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigate('Settings')}>
-            <Button title={quizData.quiz.quiz1.question1.options.option3} />
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigate('Settings')}>
-            <Button title={quizData.quiz.quiz1.question1.options.option4} />
-          </TouchableOpacity>
-        </ScrollView>
+            <TouchableOpacity onPress={() => navigate('Settings')}>
+              <Button title={quizData.quiz.quiz1.question1.options.option4} />
+            </TouchableOpacity>
+          </ScrollView>
+        ) : null}
       </View>
     );
   }
