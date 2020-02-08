@@ -8,14 +8,14 @@ const quizData = {
   quiz: {
     quiz1: {
       question1: {
-        correctoption: 'option3',
+        correctoption: 'option1',
         options: {
-          option1: 'Java',
-          option2: 'PHP',
-          option3: 'Javascript',
-          option4: 'IOS',
+          option1: 'Not Tired At All',
+          option2: 'A Bit Tired',
+          option3: 'Very Tired',
+          option4: 'Exhausted',
         },
-        question: 'React is a ____ library',
+        question: 'How tired are you right now?',
       },
       question2: {
         correctoption: 'option4',
