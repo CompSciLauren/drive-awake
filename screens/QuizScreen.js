@@ -115,6 +115,10 @@ export default class QuizScreen extends React.Component {
             <TouchableOpacity onPress={() => navigate('Settings')}>
               <Button title={quizData.quiz.quiz1.question1.options.option4} />
             </TouchableOpacity>
+
+            <View style={styles.getStartedContainer}>
+              <View style={styles.circleContainer}></View>
+            </View>
           </ScrollView>
         ) : null}
       </View>
@@ -159,5 +163,11 @@ const styles = StyleSheet.create({
   },
   clockText: {
     fontSize: 60,
+  },
+  circleContainer: {
+    backgroundColor: '#00FF55',
+    borderRadius: 150,
+    width: 300,
+    height: 300,
   },
 });
