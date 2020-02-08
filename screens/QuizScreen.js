@@ -63,6 +63,21 @@ const quizData = {
 };
 
 export default class QuizScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      show: true,
+    };
+  }
+
+  ShowHideComponent = () => {
+    if (this.state.show == true) {
+      this.setState({ show: false });
+    } else {
+      this.setState({ show: true });
+    }
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -81,7 +96,9 @@ export default class QuizScreen extends React.Component {
             ></View>
           </View>
 
-          <TouchableOpacity onPress={() => navigate('Settings')}>
+          <View>{this.state.show ? <Text>Hello Text</Text> : null}</View>
+
+          <TouchableOpacity onPress={this.ShowHideComponent}>
             <Button title={quizData.quiz.quiz1.question1.options.option1} />
           </TouchableOpacity>
 
