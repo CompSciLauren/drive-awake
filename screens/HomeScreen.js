@@ -58,7 +58,7 @@ export default function HomeScreen() {
 }
 
 HomeScreen.navigationOptions = {
-  title: 'Home                Astir             Settings',
+  header: null,
 };
 
 const styles = StyleSheet.create({
