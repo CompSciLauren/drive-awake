@@ -104,12 +104,14 @@ export default class HelpScreen extends React.Component {
             </Text>
           </View>
 
-          <TouchableOpacity onPress={this.handleSendSMS.bind(this)}>
-            <Button title="Send My Location (SMS)" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.handleSendCall.bind(this)}>
-            <Button title="Send My Location (Call)" />
-          </TouchableOpacity>
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity onPress={this.handleSendSMS.bind(this)}>
+              <Button title="Send My Location (SMS)" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.handleSendCall.bind(this)}>
+              <Button title="Send My Location (Call)" />
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );
@@ -137,6 +139,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'rgba(0,0,0, 0.87)',
     lineHeight: 24,
+    textAlign: 'center',
+  },
+  buttonsContainer: {
+    alignItems: 'center',
     textAlign: 'center',
   },
 });

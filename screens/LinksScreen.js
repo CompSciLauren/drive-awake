@@ -58,7 +58,7 @@ export default class LinksScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ paddingTop: 50 }}>
+      <View style={{ paddingTop: 50, alignItems: 'center' }}>
         <TouchableOpacity onPress={this.handleTurnDeviceOn.bind(this)}>
           <Button title="Start Monitoring" />
         </TouchableOpacity>

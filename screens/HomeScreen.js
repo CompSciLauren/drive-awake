@@ -53,7 +53,7 @@ export default class HomeScreen extends React.Component {
             </Text> */}
 
             <TouchableOpacity onPress={() => navigate('Break')}>
-              <Button title="Go to Break screen (debugging)" />
+              <Button title="Break Screen (debugging)" />
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -78,9 +78,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  // buttonsAndWeatherContainer: {
-  //   marginTop: 40,
-  // },
+  buttonsAndWeatherContainer: {
+    marginTop: 72,
+    alignItems: 'center',
+  },
   breakText: {
     fontSize: 24,
     color: 'rgba(0,0,0, 0.87)',

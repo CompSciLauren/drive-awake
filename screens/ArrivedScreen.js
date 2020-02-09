@@ -20,10 +20,11 @@ export default class ArrivedScreen extends React.Component {
               Send a text to let your buddy know you arrived safely!
             </Text>
           </View>
-
-          <TouchableOpacity onPress={() => alert('Text sent! No, really!')}>
-            <Button title="Send Text Now" />
-          </TouchableOpacity>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={() => alert('Text sent! No, really!')}>
+              <Button title="Send Text Now" />
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );
@@ -52,5 +53,8 @@ const styles = StyleSheet.create({
     color: 'rgba(0,0,0, 0.87)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  buttonContainer: {
+    alignItems: 'center',
   },
 });

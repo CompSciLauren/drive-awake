@@ -115,53 +115,55 @@ export default class QuizScreen extends React.Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}
           >
-            <View style={styles.getStartedContainer}>
-              <Text style={styles.breakText}>
-                {quizData.quiz.quiz1.question1.question}
-              </Text>
+            <View style={styles.buttonsContainer}>
+              <View style={styles.getStartedContainer}>
+                <Text style={styles.breakText}>
+                  {quizData.quiz.quiz1.question1.question}
+                </Text>
 
-              <View
-                style={[
-                  styles.codeHighlightContainer,
-                  styles.quizScreenFilename,
-                ]}
-              ></View>
+                <View
+                  style={[
+                    styles.codeHighlightContainer,
+                    styles.quizScreenFilename,
+                  ]}
+                ></View>
+              </View>
+
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent();
+                }}
+              >
+                <Button title={quizData.quiz.quiz1.question1.options.option1} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setState({ tiredScore: this.state.tiredScore + 1 });
+                }}
+              >
+                <Button title={quizData.quiz.quiz1.question1.options.option2} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setState({ tiredScore: this.state.tiredScore + 2 });
+                }}
+              >
+                <Button title={quizData.quiz.quiz1.question1.options.option3} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+                  this.ShowHideComponent(),
+                    this.setState({ tiredScore: this.state.tiredScore + 4 });
+                }}
+              >
+                <Button title={quizData.quiz.quiz1.question1.options.option4} />
+              </TouchableOpacity>
             </View>
-
-            <TouchableOpacity
-              onPress={() => {
-                this.ShowHideComponent();
-              }}
-            >
-              <Button title={quizData.quiz.quiz1.question1.options.option1} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                this.ShowHideComponent(),
-                  this.setState({ tiredScore: this.state.tiredScore + 1 });
-              }}
-            >
-              <Button title={quizData.quiz.quiz1.question1.options.option2} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                this.ShowHideComponent(),
-                  this.setState({ tiredScore: this.state.tiredScore + 2 });
-              }}
-            >
-              <Button title={quizData.quiz.quiz1.question1.options.option3} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                this.ShowHideComponent(),
-                  this.setState({ tiredScore: this.state.tiredScore + 4 });
-              }}
-            >
-              <Button title={quizData.quiz.quiz1.question1.options.option4} />
-            </TouchableOpacity>
           </ScrollView>
         ) : null}
 
@@ -297,6 +299,9 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     marginTop: 50,
+    alignItems: 'center',
+  },
+  buttonsContainer: {
     alignItems: 'center',
   },
 });

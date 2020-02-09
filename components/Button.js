@@ -23,10 +23,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 100,
   },
   buttonButton: {
+    width: 154,
+    height: 72,
     backgroundColor: '#930101',
     borderRadius: 10,
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 25,
     justifyContent: 'center',
     alignItems: 'center',
     ...Platform.select({
