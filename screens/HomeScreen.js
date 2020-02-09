@@ -2,8 +2,6 @@ import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CountDown from 'react-native-countdown-component';
-
-import { MonoText } from '../components/StyledText';
 import { Button } from '../components/Button';
 
 export default class HomeScreen extends React.Component {
@@ -47,7 +45,7 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-          <TouchableOpacity onPress={() => navigate('Settings')}>
+          <TouchableOpacity onPress={() => navigate('Help')}>
             <Button title="HELP" />
           </TouchableOpacity>
 

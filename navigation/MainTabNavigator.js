@@ -1,13 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import {
-  createBottomTabNavigator,
-  createMaterialTopTabNavigator,
-} from 'react-navigation-tabs';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import HelpScreen from '../screens/HelpScreen';
 import QuizScreen from '../screens/QuizScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -20,6 +18,7 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Help: HelpScreen,
     Quiz: QuizScreen,
     Settings: SettingsScreen,
   },
@@ -41,6 +40,29 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+
+const HelpStack = createStackNavigator(
+  {
+    Help: HelpScreen,
+  },
+  config
+);
+
+HelpStack.navigationOptions = {
+  tabBarLabel: 'Help',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+HelpStack.path = '';
 
 const QuizStack = createStackNavigator(
   {
