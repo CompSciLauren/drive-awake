@@ -39,7 +39,7 @@ export default class HomeScreen extends React.Component {
               <Button title="HELP" />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigate('Settings')}>
+            <TouchableOpacity onPress={() => navigate('Arrived')}>
               <Button title="Arrived" />
             </TouchableOpacity>
 

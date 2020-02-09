@@ -6,6 +6,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import HelpScreen from '../screens/HelpScreen';
+import ArrivedScreen from '../screens/ArrivedScreen';
 import QuizScreen from '../screens/QuizScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -19,6 +20,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
     Help: HelpScreen,
+    Arrived: ArrivedScreen,
     Quiz: QuizScreen,
     Settings: SettingsScreen,
   },
@@ -63,6 +65,29 @@ HelpStack.navigationOptions = {
 };
 
 HelpStack.path = '';
+
+const ArrivedStack = createStackNavigator(
+  {
+    Arrived: ArrivedScreen,
+  },
+  config
+);
+
+ArrivedStack.navigationOptions = {
+  tabBarLabel: 'Arrived',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+ArrivedStack.path = '';
 
 const QuizStack = createStackNavigator(
   {
