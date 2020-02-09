@@ -25,7 +25,7 @@ export default class BreakScreen extends React.Component {
 
           <CountDown
             size={30}
-            until={10}
+            until={180}
             onFinish={() => navigate('Quiz')}
             digitStyle={{
               backgroundColor: '#FFF',
