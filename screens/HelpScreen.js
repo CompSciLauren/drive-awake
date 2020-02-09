@@ -1,5 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Button } from '../components/Button';
 
 export default class HelpScreen extends React.Component {
   render() {
@@ -10,16 +12,15 @@ export default class HelpScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Text</Text>
+            <Text style={styles.randomText}>
+              Press the button to send your location to your buddy and let them
+              know you need their help.
+            </Text>
           </View>
 
-          <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Another line of text</Text>
-          </View>
-
-          <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Even more text</Text>
-          </View>
+          <TouchableOpacity onPress={() => alert('Location sent! No, really!')}>
+            <Button title="Send My Location Now" />
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
