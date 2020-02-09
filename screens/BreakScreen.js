@@ -44,12 +44,12 @@ export default class BreakScreen extends React.Component {
             <Text style={styles.biggerText}>Everybody do the stretch!</Text>
           </View>
 
-          {/* <View>
+          <View>
             <Image
               source={require('../assets/images/stretch_1.PNG')}
               style={styles.imageSize}
             />
-          </View> */}
+          </View>
 
           <View style={styles.textContainer}>
             <Text style={styles.biggerText}>Did you know?</Text>
