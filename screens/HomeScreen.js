@@ -13,23 +13,12 @@ export default class HomeScreen extends React.Component {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-
           <View style={styles.getStartedContainer}>
             <Text style={styles.breakText}>Time until required break:</Text>
 
             <CountDown
               size={30}
-              until={1000}
+              until={600}
               onFinish={() => alert('Finished')}
               digitStyle={{
                 backgroundColor: '#FFF',
@@ -45,22 +34,24 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-          <TouchableOpacity onPress={() => navigate('Help')}>
-            <Button title="HELP" />
-          </TouchableOpacity>
+          <View style={styles.buttonsAndWeatherContainer}>
+            <TouchableOpacity onPress={() => navigate('Help')}>
+              <Button title="HELP" />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigate('Settings')}>
-            <Button title="Arrived" />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Settings')}>
+              <Button title="Arrived" />
+            </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigate('Quiz')}>
-            <Button title="Take Quiz" />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('Quiz')}>
+              <Button title="Take Quiz" />
+            </TouchableOpacity>
 
-          <Text style={styles.weatherText}>
-            The weather is (good/bad). Road conditions (should be normal / may
-            be bad).
-          </Text>
+            <Text style={styles.weatherText}>
+              The weather is (good/bad). Road conditions (should be normal / may
+              be bad).
+            </Text>
+          </View>
         </ScrollView>
       </View>
     );
@@ -79,38 +70,19 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
+  buttonsAndWeatherContainer: {
+    marginTop: 40,
   },
   breakText: {
     fontSize: 24,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
-  },
-  clockText: {
-    fontSize: 60,
+    marginBottom: 20,
   },
   weatherText: {
     marginTop: 40,
