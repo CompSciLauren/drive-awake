@@ -56,7 +56,9 @@ export default class BreakScreen extends React.Component {
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.smallerText}>{funFactsList[0]}</Text>
+            <Text style={styles.smallerText}>
+              {funFactsList[Math.floor(Math.random() * funFactsList.length)]}
+            </Text>
           </View>
         </ScrollView>
       </View>
