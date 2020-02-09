@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { TouchableOpacity, View, Text, Vibration } from 'react-native';
 export default class LinksScreen extends Component {
   handleTurnDeviceOn = async () => {
     fetch('http://13.58.89.149:8000/endpoint/api/onoff/', {
@@ -36,7 +36,11 @@ export default class LinksScreen extends Component {
       //If response is in json then in success
       .then(responseJson => {
         //Success
-        alert('is drowsy: ' + responseJson[responseJson.length - 1].isDrowsy);
+        if (responseJson[responseJson.length - 1].isDrowsy == true) {
+          const DURATION = 5000;
+
+          Vibration.vibrate(DURATION);
+        }
       })
       //If response is not in json then in error
       .catch(error => {
