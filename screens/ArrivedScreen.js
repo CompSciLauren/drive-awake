@@ -1,5 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Button } from '../components/Button';
 
 export default class ArrivedScreen extends React.Component {
   render() {
@@ -10,16 +12,18 @@ export default class ArrivedScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Text</Text>
+            <Text style={styles.randomText}>Hurray!</Text>
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Another line of text</Text>
+            <Text style={styles.randomText}>
+              Send a text to let your buddy know you arrived safely!
+            </Text>
           </View>
 
-          <View style={styles.textContainer}>
-            <Text style={styles.randomText}>Even more text</Text>
-          </View>
+          <TouchableOpacity onPress={() => alert('Text sent! No, really!')}>
+            <Button title="Send Text Now" />
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
