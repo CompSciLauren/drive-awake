@@ -171,11 +171,22 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
-const tabNavigator = createMaterialTopTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
-});
+const tabNavigator = createMaterialTopTabNavigator(
+  {
+    HomeStack,
+    LinksStack,
+    SettingsStack,
+  },
+  {
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#009890',
+        height: 75,
+        justifyContent: 'flex-end',
+      },
+    },
+  }
+);
 
 tabNavigator.path = '';
 
