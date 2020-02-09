@@ -11,6 +11,16 @@ const funFactsList = [
 export default class BreakScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
+
+    const stretchArray2 = [
+      'Do the Cha Cha slide!',
+      'Jog in place.',
+      'Do jumping jacks.',
+      'Hope on one foot for 30 seconds.',
+      'Do five lunges.',
+      'Do a little shimmy!',
+    ];
+
     const stretchArray = [
       'stretch_1.PNG',
       'stretch_2.PNG',
@@ -60,13 +70,19 @@ export default class BreakScreen extends React.Component {
             </Text>
           </View>
 
-          <View>
+          <View style={styles.textContainer}>
+            <Text style={styles.smallerText}>
+              {stretchArray2[Math.floor(Math.random() * stretchArray2.length)]}
+            </Text>
+          </View>
+
+          {/* <View>
             <Image
               source={require('../assets/images/' +
                 stretchArray[Math.floor(Math.random() * stretchArray.length)])}
               style={styles.imageSize}
             />
-          </View>
+          </View> */}
 
           <View style={styles.textContainer}>
             <Text style={styles.biggerText}>Did you know?</Text>
