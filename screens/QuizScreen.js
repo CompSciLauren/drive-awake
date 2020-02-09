@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   breakText: {
     fontSize: 24,
-    color: 'rgba(96,100,109, 1)',
+    color: 'rgba(0,0,0, 0.87)',
     lineHeight: 24,
     textAlign: 'center',
   },
