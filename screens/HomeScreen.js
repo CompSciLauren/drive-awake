@@ -23,11 +23,11 @@ export default class HomeScreen extends React.Component {
               digitStyle={{
                 backgroundColor: '#FFF',
                 borderWidth: 2,
-                borderColor: '#1CC625',
+                borderColor: '#930101',
               }}
-              digitTxtStyle={{ color: '#1CC625' }}
+              digitTxtStyle={{ color: '#930101' }}
               timeLabelStyle={{ color: 'red', fontWeight: 'bold' }}
-              separatorStyle={{ color: '#1CC625' }}
+              separatorStyle={{ color: '#930101' }}
               timeToShow={['H', 'M', 'S']}
               timeLabels={{ m: null, s: null }}
               showSeparator
