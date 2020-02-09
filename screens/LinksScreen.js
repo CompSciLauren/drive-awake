@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, Vibration, Alert } from 'react-native';
+import { TouchableOpacity, View, Text, Vibration } from 'react-native';
+import { Button } from '../components/Button';
 
 export default class LinksScreen extends React.Component {
   handleTurnDeviceOn = async () => {
@@ -57,21 +58,19 @@ export default class LinksScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ paddingTop: 50, paddingLeft: 50 }}>
+      <View style={{ paddingTop: 50 }}>
         <TouchableOpacity onPress={this.handleTurnDeviceOn.bind(this)}>
-          <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
-            {' '}
-            Start Monitoring{' '}
-          </Text>
+          <Button title="Start Monitoring" />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.handleTurnDeviceOff.bind(this)}>
-          <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
-            {' '}
-            Stop Monitoring{' '}
-          </Text>
+          <Button title="Stop Monitoring" />
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+LinksScreen.navigationOptions = {
+  header: null,
+};
