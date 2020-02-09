@@ -4,6 +4,44 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Button } from '../components/Button';
 
 export default class ArrivedScreen extends React.Component {
+  handleSendSMS = async () => {
+    fetch('http://13.58.89.149:8000/contacts/api/sms/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        receiver: '+18167729435',
+        sender: '+15307224633',
+        message: 'I arrived at my destination successfully.',
+      }),
+    });
+    fetch('http://13.58.89.149:8000/contacts/api/sms/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        receiver: '+18165502253',
+        sender: '+15307224633',
+        message: 'I arrived at my destination successfully.',
+      }),
+    });
+    fetch('http://13.58.89.149:8000/contacts/api/sms/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        receiver: '+19137558051',
+        sender: '+15307224633',
+        message: 'I arrived at my destination successfully.',
+      }),
+    });
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +59,7 @@ export default class ArrivedScreen extends React.Component {
             </Text>
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() => alert('Text sent! No, really!')}>
+            <TouchableOpacity onPress={this.handleSendSMS.bind(this)}>
               <Button title="Send Text Now" />
             </TouchableOpacity>
           </View>
