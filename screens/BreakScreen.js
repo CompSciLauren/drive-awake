@@ -15,7 +15,6 @@ export default class BreakScreen extends React.Component {
       'stretch_1.PNG',
       'stretch_2.PNG',
       'stretch_3.PNG',
-      'stretch_4.PNG',
       'stretch_5.PNG',
       'stretch_6.PNG',
       'stretch_7.PNG',
@@ -56,7 +55,7 @@ export default class BreakScreen extends React.Component {
           />
 
           <View style={styles.textContainer}>
-            <Text style={styles.biggerText}>
+            <Text style={styles.biggerText2}>
               Take this opportunity to stretch!
             </Text>
           </View>
@@ -113,6 +112,14 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
     marginTop: 50,
+  },
+  biggerText2: {
+    fontSize: 24,
+    color: 'rgba(0,0,0, 0.87)',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginTop: 50,
+    marginBottom: 20,
   },
   smallerText: {
     fontSize: 18,
