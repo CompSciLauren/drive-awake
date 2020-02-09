@@ -178,7 +178,9 @@ export default class QuizScreen extends React.Component {
                 <Button title="Swipe up (correct)" />
               </TouchableOpacity>
 
-              <View style={styles.circleContainer}></View>
+              <View style={styles.mainCircleContainer}>
+                <View style={styles.circleContainer}></View>
+              </View>
 
               <TouchableOpacity
                 onPress={() => {
@@ -205,8 +207,10 @@ export default class QuizScreen extends React.Component {
                 <Button title="Swipe up" />
               </TouchableOpacity>
 
-              <View style={styles.quizTextContainer}>
-                <Text style={styles.quizText}>3</Text>
+              <View style={styles.mainCircleContainer}>
+                <View style={styles.quizTextContainer}>
+                  <Text style={styles.quizText}>3</Text>
+                </View>
               </View>
 
               <TouchableOpacity
@@ -280,25 +284,29 @@ const styles = StyleSheet.create({
   },
   quizText: {
     fontSize: 96,
-    marginTop: 70,
+    marginTop: 55,
   },
   quizResultsText: {
     fontSize: 24,
     marginTop: 110,
+  },
+  mainCircleContainer: {
+    alignItems: 'center',
   },
   circleContainer: {
     backgroundColor: '#00FF55',
     borderRadius: 150,
     width: 300,
     height: 300,
-    marginTop: 50,
+    marginTop: 20,
+    marginBottom: 20,
   },
   quizTextContainer: {
     backgroundColor: '#FFF',
     borderRadius: 150,
     width: 300,
     height: 300,
-    marginTop: 50,
+    marginTop: 20,
     alignItems: 'center',
   },
   buttonsContainer: {
