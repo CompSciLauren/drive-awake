@@ -18,7 +18,7 @@ export default class HomeScreen extends React.Component {
 
             <CountDown
               size={30}
-              until={10}
+              until={2400}
               onFinish={() => navigate('Break')}
               digitStyle={{
                 backgroundColor: '#FFF',
@@ -51,6 +51,10 @@ export default class HomeScreen extends React.Component {
               The weather is (good/bad). Road conditions (should be normal / may
               be bad).
             </Text>
+
+            <TouchableOpacity onPress={() => navigate('Break')}>
+              <Button title="Go to Break screen (debugging)" />
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>

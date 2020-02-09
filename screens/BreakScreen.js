@@ -1,11 +1,10 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Button } from '../components/Button';
 import CountDown from 'react-native-countdown-component';
 
 export default class BreakScreen extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView
@@ -21,7 +20,7 @@ export default class BreakScreen extends React.Component {
           <CountDown
             size={30}
             until={180}
-            onFinish={() => navigate('Break')}
+            onFinish={() => navigate('Home')}
             digitStyle={{
               backgroundColor: '#FFF',
               borderWidth: 2,
