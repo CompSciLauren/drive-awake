@@ -8,6 +8,7 @@ import HomeScreen from '../screens/HomeScreen';
 import HelpScreen from '../screens/HelpScreen';
 import ArrivedScreen from '../screens/ArrivedScreen';
 import QuizScreen from '../screens/QuizScreen';
+import BreakScreen from '../screens/BreakScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -22,6 +23,7 @@ const HomeStack = createStackNavigator(
     Help: HelpScreen,
     Arrived: ArrivedScreen,
     Quiz: QuizScreen,
+    Break: BreakScreen,
     Settings: SettingsScreen,
   },
   config
@@ -107,6 +109,29 @@ QuizStack.navigationOptions = {
 };
 
 QuizStack.path = '';
+
+const BreakStack = createStackNavigator(
+  {
+    Break: BreakScreen,
+  },
+  config
+);
+
+BreakStack.navigationOptions = {
+  tabBarLabel: 'Break',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+BreakStack.path = '';
 
 const LinksStack = createStackNavigator(
   {

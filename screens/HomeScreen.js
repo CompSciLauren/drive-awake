@@ -18,8 +18,8 @@ export default class HomeScreen extends React.Component {
 
             <CountDown
               size={30}
-              until={600}
-              onFinish={() => alert('Finished')}
+              until={10}
+              onFinish={() => navigate('Break')}
               digitStyle={{
                 backgroundColor: '#FFF',
                 borderWidth: 2,
