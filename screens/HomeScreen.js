@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   buttonsAndWeatherContainer: {
-    marginTop: 72,
+    marginTop: 60,
     alignItems: 'center',
   },
   breakText: {
