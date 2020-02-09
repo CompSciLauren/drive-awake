@@ -11,6 +11,21 @@ const funFactsList = [
 export default class BreakScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
+    const stretchArray = [
+      'stretch_1.PNG',
+      'stretch_2.PNG',
+      'stretch_3.PNG',
+      'stretch_4.PNG',
+      'stretch_5.PNG',
+      'stretch_6.PNG',
+      'stretch_7.PNG',
+      'stretch_9.PNG',
+      'stretch_10.PNG',
+      'stretch_11.PNG',
+      'stretch_12.PNG',
+      'stretch_13.PNG',
+      'stretch_14.PNG',
+    ];
     return (
       <View style={styles.container}>
         <ScrollView
@@ -48,7 +63,8 @@ export default class BreakScreen extends React.Component {
 
           <View>
             <Image
-              source={require('../assets/images/stretch_1.PNG')}
+              source={require('../assets/images/' +
+                stretchArray[Math.floor(Math.random() * stretchArray.length)])}
               style={styles.imageSize}
             />
           </View>
