@@ -2,8 +2,6 @@ import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 
-const stretchesList = ["'../assets/images/stretch_1.PNG'"];
-
 const funFactsList = [
   'The Sleep Foundation recommends that you take a break every 2 hours or every 100 miles to do something stimulating.',
   'Caffeine does not increase your reaction time on the road.',
@@ -46,12 +44,12 @@ export default class BreakScreen extends React.Component {
             <Text style={styles.biggerText}>Everybody do the stretch!</Text>
           </View>
 
-          <View>
+          {/* <View>
             <Image
               source={require('../assets/images/stretch_1.PNG')}
               style={styles.imageSize}
             />
-          </View>
+          </View> */}
 
           <View style={styles.textContainer}>
             <Text style={styles.biggerText}>Did you know?</Text>

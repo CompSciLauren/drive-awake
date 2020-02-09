@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, View, Text, Vibration } from 'react-native';
-export default class LinksScreen extends Component {
+import React from 'react';
+import { TouchableOpacity, View, Text, Vibration, Alert } from 'react-native';
+
+export default class LinksScreen extends React.Component {
   handleTurnDeviceOn = async () => {
     fetch('http://13.58.89.149:8000/endpoint/api/onoff/', {
       method: 'POST',
@@ -27,6 +28,10 @@ export default class LinksScreen extends Component {
     });
   };
 
+  componentDidMount() {
+    this.timer = setInterval(() => this.handleGetRequest(), 5000);
+  }
+
   handleGetRequest = async () => {
     fetch('http://13.58.89.149:8000/endpoint/api/status/', {
       method: 'GET',
@@ -40,6 +45,7 @@ export default class LinksScreen extends Component {
           const DURATION = 5000;
 
           Vibration.vibrate(DURATION);
+          alert('You are falling asleep. Pull over as soon as possible.');
         }
       })
       //If response is not in json then in error
@@ -55,21 +61,14 @@ export default class LinksScreen extends Component {
         <TouchableOpacity onPress={this.handleTurnDeviceOn.bind(this)}>
           <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
             {' '}
-            Click me to turn the device on{' '}
+            Start Monitoring{' '}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.handleTurnDeviceOff.bind(this)}>
           <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
             {' '}
-            Click me to turn the device off{' '}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.handleGetRequest.bind(this)}>
-          <Text style={{ paddingTop: 50, paddingLeft: 50, color: '#FF0000' }}>
-            {' '}
-            Click me to make GET request{' '}
+            Stop Monitoring{' '}
           </Text>
         </TouchableOpacity>
       </View>
