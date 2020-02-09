@@ -47,10 +47,10 @@ export default class HomeScreen extends React.Component {
               <Button title="Take Quiz" />
             </TouchableOpacity>
 
-            <Text style={styles.weatherText}>
+            {/* <Text style={styles.weatherText}>
               The weather is (good/bad). Road conditions (should be normal / may
               be bad).
-            </Text>
+            </Text> */}
 
             <TouchableOpacity onPress={() => navigate('Break')}>
               <Button title="Go to Break screen (debugging)" />
@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  buttonsAndWeatherContainer: {
-    marginTop: 40,
-  },
+  // buttonsAndWeatherContainer: {
+  //   marginTop: 40,
+  // },
   breakText: {
     fontSize: 24,
     color: 'rgba(96,100,109, 1)',
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  weatherText: {
-    marginTop: 40,
-    fontSize: 24,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginHorizontal: 20,
-  },
+  // weatherText: {
+  //   marginTop: 40,
+  //   fontSize: 24,
+  //   color: 'rgba(96,100,109, 1)',
+  //   lineHeight: 24,
+  //   textAlign: 'center',
+  //   marginHorizontal: 20,
+  // },
 });
