@@ -1,6 +1,14 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import CountDown from 'react-native-countdown-component';
+
+const stretchesList = ["'../assets/images/stretch_1.PNG'"];
+
+const funFactsList = [
+  'The Sleep Foundation recommends that you take a break every 2 hours or every 100 miles to do something stimulating.',
+  'Caffeine does not increase your reaction time on the road.',
+  'Certain music can help to increase your awakeness, so pump it up!',
+];
 
 export default class BreakScreen extends React.Component {
   render() {
@@ -35,25 +43,22 @@ export default class BreakScreen extends React.Component {
           />
 
           <View style={styles.textContainer}>
-            <Text style={styles.exercisesText}>Be sure to stretch!</Text>
+            <Text style={styles.biggerText}>Everybody do the stretch!</Text>
+          </View>
+
+          <View>
+            <Image
+              source={require('../assets/images/stretch_1.PNG')}
+              style={styles.imageSize}
+            />
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.smallerText}>Stretch Out Your Legs</Text>
+            <Text style={styles.biggerText}>Did you know?</Text>
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.smallerText}>Relieve Lower Back Tension</Text>
-          </View>
-
-          <View style={styles.textContainer}>
-            <Text style={styles.smallerText}>Relax Your Neck and Eyes</Text>
-          </View>
-
-          <View style={styles.textContainer}>
-            <Text style={styles.smallerText}>
-              Stretch Your Arms and Shoulders
-            </Text>
+            <Text style={styles.smallerText}>{funFactsList[0]}</Text>
           </View>
         </ScrollView>
       </View>
@@ -84,18 +89,22 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: 'center',
   },
-  exercisesText: {
+  biggerText: {
     fontSize: 24,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
-    marginTop: 40,
+    marginTop: 50,
   },
   smallerText: {
     fontSize: 18,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
-    marginTop: 40,
+    marginTop: 15,
+  },
+  imageSize: {
+    width: 'auto',
+    height: 160,
   },
 });
