@@ -41,7 +41,9 @@ export default class BreakScreen extends React.Component {
           />
 
           <View style={styles.textContainer}>
-            <Text style={styles.biggerText}>Everybody do the stretch!</Text>
+            <Text style={styles.biggerText}>
+              Take this opportunity to stretch!
+            </Text>
           </View>
 
           <View>
